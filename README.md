@@ -49,6 +49,12 @@ Response:
     make lint      # check style
     make docker-build && make docker-run  # container mode
 
+Access:
+
+    http://127.0.0.1:8000/business-seconds?start_time=2023-07-10T09:00:00&end_time=2023-07-10T17:00:00
+    
+Open docs: http://127.0.0.1:8000/docs
+
 Or manually:
 
     python3 -m venv venv
