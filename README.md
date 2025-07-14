@@ -42,16 +42,26 @@ Response:
 
 ## Run locally (Dev)
  
+    make setup     # (once)
+    make run       # start API
+    make test      # run tests
+    make format    # auto-format
+    make lint      # check style
+    make docker-build && make docker-run  # container mode
+
+Or manually:
+
     python3 -m venv venv
     source venv/bin/activate
-    pip install -r requirements.txt
-    uvicorn main:app --reload
+    pip install -r requirements.txt -r requirements-dev.txt
+    python -m uvicorn main:app --reload
+
 
 API will be available at: http://127.0.0.1:8000/business-seconds
 
 ## Run Tests
 
-    pytest tests/
+    make test
 
 ## Docker Deployment
 

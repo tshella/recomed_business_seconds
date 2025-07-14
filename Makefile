@@ -1,5 +1,3 @@
-# Makefile for RecoMed Business Seconds API
-
 VENV ?= venv
 PORT ?= 8000
 APP_NAME = recomed-api
@@ -24,15 +22,15 @@ setup:
 run:
 	$(UVICORN) main:app --reload --port=$(PORT)
 
-## Run all tests
+## Run unit tests
 test:
 	$(PYTEST) tests/
 
-## Check code style with flake8
+## Lint the project with flake8
 lint:
 	$(FLAKE8) . --exclude=$(VENV),__pycache__
 
-## Format code with black
+## Format the codebase using black
 format:
 	$(BLACK) .
 
@@ -44,7 +42,7 @@ docker-build:
 docker-run:
 	docker run -p $(PORT):8000 $(APP_NAME)
 
-## Clean Docker containers and images
+## Clean up Docker containers and images
 clean:
 	docker rm -f $$(docker ps -aq --filter ancestor=$(APP_NAME)) 2>/dev/null || true
 	docker rmi -f $(APP_NAME) 2>/dev/null || true
